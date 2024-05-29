@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row">
+        <h1 class="text-center">Edit Campground</h1>
+
+        <div class="col-6 offset-3">
+            <form action="/campground/<%=camp.id%>?_method=put" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="title"><b>Title:</b> </label>
+                    <input class="form-control" type=" text" id="title" name="campground[title]"
+                        value="<%=camp.title%>"></input>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location"><b>Location:</b> </label>
+                    <input class="form-control" type=" text" id="location" name="campground[location]"
+                        value="<%=camp.location%>"></input>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image"><b>Image URL:</b> </label>
+                    <input class="form-control" type=" text" id="image" name="campground[image]"></input>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">ampground Price:</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input class="form-control" type="text" id="price" value="<%=camp.price%>" placeholder="0.00"
+                            name="campground[price]" aria-label="price" aria-describedby="price"></input>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description"><b>Description:</b> </label>
+                    <textarea class="form-control" type="text" id="description"
+                        name="campground[description]"><%=camp.description%></textarea>
+                </div>
+                <button class="btn btn-success">Update Campground</button>
+                <a class="btn btn-secondary" href="/campground/<%=camp.id%>">Back to Campground</a>
+            </form>
+
+
+        </div>
+
+    </div>
