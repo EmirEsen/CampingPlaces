@@ -4,20 +4,20 @@
         <h1 class="text-center">Edit Campground</h1>
 
         <div class="col-6 offset-3">
-            <form action="/campground/<%=camp.id%>?_method=put" method="post">
+            <form action="/campground/<%=camp.id%>?_method=put" method="post" class="validated-form" novalidate>
                 <div class="mb-3">
                     <label class="form-label" for="title"><b>Title:</b> </label>
-                    <input class="form-control" type=" text" id="title" name="campground[title]"
-                        value="<%=camp.title%>"></input>
+                    <input class="form-control" type=" text" id="title" name="campground[title]" value="<%=camp.title%>"
+                        required></input>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="location"><b>Location:</b> </label>
                     <input class="form-control" type=" text" id="location" name="campground[location]"
-                        value="<%=camp.location%>"></input>
+                        value="<%=camp.location%>" required></input>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="image"><b>Image URL:</b> </label>
-                    <input class="form-control" type=" text" id="image" name="campground[image]"></input>
+                    <input class="form-control" type=" text" id="image" name="campground[image]" required></input>
                 </div>
 
                 <div class="mb-3">
@@ -25,14 +25,14 @@
                     <div class="input-group">
                         <span class="input-group-text" id="price-label">$</span>
                         <input class="form-control" type="text" id="price" value="<%=camp.price%>" placeholder="0.00"
-                            name="campground[price]" aria-label="price" aria-describedby="price"></input>
+                            name="campground[price]" aria-label="price" aria-describedby="price" required></input>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="description"><b>Description:</b> </label>
-                    <textarea class="form-control" type="text" id="description"
-                        name="campground[description]"><%=camp.description%></textarea>
+                    <textarea class="form-control" type="text" id="description" name="campground[description]"
+                        required> <%=camp.description%> </textarea>
                 </div>
                 <button class="btn btn-success">Update Campground</button>
                 <a class="btn btn-secondary" href="/campground/<%=camp.id%>">Back to Campground</a>
@@ -42,3 +42,26 @@
         </div>
 
     </div>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.validated-form')
+
+            // Loop over them and prevent submission
+            Array.from(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
