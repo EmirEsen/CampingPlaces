@@ -22,9 +22,9 @@
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a href="/campground/<%=`${camp.id}`%>/edit" class="card-link btn btn-warning">Edit</a>
+                    <a href="/campgrounds/<%=`${camp.id}`%>/edit" class="card-link btn btn-warning">Edit</a>
 
-                    <form class="d-inline" action="/campground/<%=`${camp.id}`%>?_method=delete" method="post">
+                    <form class="d-inline" action="/campgrounds/<%=`${camp.id}`%>?_method=delete" method="post">
                         <button class="btn btn-danger">Delete</button>
                     </form>
                 </div>
@@ -56,6 +56,9 @@
                         <p class="card-text">
                             Review: <%= review.body %>
                         </p>
+                        <form action="/campgrounds/<%=camp._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
                 <% } %>

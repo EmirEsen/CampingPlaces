@@ -4,7 +4,7 @@
         <h1 class="text-center">Edit Campground</h1>
 
         <div class="col-6 offset-3">
-            <form action="/campground/<%=camp.id%>?_method=put" method="post" class="validated-form" novalidate>
+            <form action="/campgrounds/<%=camp.id%>?_method=put" method="post" class="validated-form" novalidate>
                 <div class="mb-3">
                     <label class="form-label" for="title"><b>Title:</b> </label>
                     <input class="form-control" type=" text" id="title" name="campground[title]" value="<%=camp.title%>"
@@ -17,11 +17,12 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="image"><b>Image URL:</b> </label>
-                    <input class="form-control" type=" text" id="image" name="campground[image]" required></input>
+                    <input class="form-control" type=" text" id="image" value="<%=camp.image%>" name="campground[image]"
+                        required></input>
                 </div>
 
                 <div class="mb-3">
-                    <label for="price" class="form-label">ampground Price:</label>
+                    <label for="price" class="form-label">Campground Price:</label>
                     <div class="input-group">
                         <span class="input-group-text" id="price-label">$</span>
                         <input class="form-control" type="text" id="price" value="<%=camp.price%>" placeholder="0.00"
@@ -35,7 +36,7 @@
                         required> <%=camp.description%> </textarea>
                 </div>
                 <button class="btn btn-success">Update Campground</button>
-                <a class="btn btn-secondary" href="/campground/<%=camp.id%>">Back to Campground</a>
+                <a class="btn btn-secondary" href="/campgrounds/<%=camp.id%>">Back to Campground</a>
             </form>
 
 
