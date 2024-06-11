@@ -21,7 +21,14 @@ mongoose.connect('mongodb://localhost:27017/YelpCamp');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => { console.log('Database connected') });
+db.once('open', async () => {
+    console.log('Database connected');
+    // await db.collection('users').dropIndex('enail_1');
+    // await db.collection('users').updateMany({ email: null }, { $set: { email: 'default@example.com' } });
+    // console.log('Updated documents with null email');
+
+    // process.exit();
+});
 
 const app = express();
 app.engine('ejs', ejsMate);
@@ -52,6 +59,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+    res.locals.signedInUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
