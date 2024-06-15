@@ -5,7 +5,7 @@
         <h1 class="text-center">New Campground</h1>
 
         <div class="col-6 offset-3">
-            <form action="/campgrounds" method="post" class="validated-form" novalidate>
+            <form action="/campgrounds" method="post" class="validated-form" novalidate enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title"><b>Title:</b> </label>
                     <input class="form-control" type=" text" id="title" name="campground[title]" required></input>
@@ -14,13 +14,13 @@
                     <label class="form-label" for="location"><b>Location:</b> </label>
                     <input class="form-control" type=" text" id="location" name="campground[location]" required></input>
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label class="form-label" for="image"><b>Image URL:</b> </label>
                     <input class="form-control" type=" text" id="image" name="campground[image]" required></input>
-                </div>
+                </div> -->
 
                 <div class="mb-3">
-                    <label for="price" class="form-label">Campground Price:</label>
+                    <label for="price" class="form-label"><b>Price:</b></label>
                     <div class="input-group">
                         <span class="input-group-text" id="price-label">$</span>
                         <input class="form-control" type="text" id="price" placeholder="0.00" name="campground[price]"
@@ -32,6 +32,10 @@
                     <label class="form-label" for="description"><b>Description:</b> </label>
                     <textarea class="form-control" type="text" id="description" name="campground[description]"
                         required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="images" class="form-label"><b>Add Image(s):</b></label>
+                    <input class="form-control form-control-sm" id="images" type="file" name="image" multiple>
                 </div>
                 <button class="btn btn-success">Add Campground</button>
             </form>

@@ -36,11 +36,18 @@ const seedDB = async () => {
         const rnadom1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const campground = new Campground({
+            author: '66684435c3f19bcdc7f3e628',
             location: `${cities[rnadom1000].city}, ${cities[rnadom1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: await seedImg(),
+            // image: await seedImg(),
             description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, nihil tempora vel aspernatur quod aliquam illum! Iste impedit odio esse neque veniam molestiae eligendi commodi minus, beatae accusantium, doloribus quo!',
-            price
+            price,
+            images: [
+                {
+                    url: await seedImg(),
+                    // filename: 'YelpCamp/lyijdcjri8lzthhxanjs',
+                }
+            ]
         });
         await campground.save();
     }
