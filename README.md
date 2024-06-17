@@ -4,11 +4,11 @@
 
 
 
-![alt text](landing.jpeg)
-![alt text](home.jpeg)
-![alt text](show.jpeg)
-![alt text](showalert.jpeg)
-![alt text](edit.jpeg)
-![alt text](login.jpeg)
-![alt text](register.jpeg)
+![alt text](/screenshots/landing.jpeg)
+![alt text](/screenshots/home.jpeg)
+![alt text](/screenshots/show.jpeg)
+![alt text](/screenshots/showalert.jpeg)
+![alt text](/screenshots/edit.jpeg)
+![alt text](/screenshots/login.jpeg)
+![alt text](/screenshots/register.jpeg)
 
