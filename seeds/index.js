@@ -24,7 +24,7 @@ async function seedImg() {
         })
         return resp.data.urls.small
     } catch (err) {
-        console.error(err)
+        console.error(err);
     }
 };
 
@@ -32,26 +32,30 @@ async function seedImg() {
 
 const seedDB = async () => {
     await Campground.deleteMany({});
-    for (let i = 0; i < 25; i++) {
-        const rnadom1000 = Math.floor(Math.random() * 1000);
+    for (let i = 0; i < 200; i++) {
+        const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const campground = new Campground({
-            author: '66684435c3f19bcdc7f3e628',
-            location: `${cities[rnadom1000].city}, ${cities[rnadom1000].state}`,
+            author: '666dc2182bb9d72881181ce5',
+            location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             // image: await seedImg(),
             description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, nihil tempora vel aspernatur quod aliquam illum! Iste impedit odio esse neque veniam molestiae eligendi commodi minus, beatae accusantium, doloribus quo!',
             price,
+            geometry: {
+                type: 'Point',
+                coordinates: [cities[random1000].longitude, cities[random1000].latitude]
+            },
             images: [
                 {
-                    url: await seedImg(),
+                    url: await seedImg()
                     // filename: 'YelpCamp/lyijdcjri8lzthhxanjs',
                 }
             ]
         });
         await campground.save();
-    }
-}
+    };
+};
 
 seedDB().then(() => {
     mongoose.connection.close();
