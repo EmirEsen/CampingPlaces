@@ -23,11 +23,11 @@ const mongoSanitize = require('express-mongo-sanitize');
 
 const MongoDBStore = require('connect-mongo')(session);
 
-const localDBUrl = 'mongodb://localhost:27017/YelpCamp';
+const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1/yelp-camp";
 
 // const dbUrl = process.env.DB_URL;
 // mongodb://localhost:27017/YelpCamp'
-mongoose.connect(localDBUrl);
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 
 const store = new MongoDBStore({
-    url: localDBUrl,
+    url: dbUrl,
     secret: 'thisshouldbeabettersecret',
     touchAfter: 24 * 60 * 60
 });
