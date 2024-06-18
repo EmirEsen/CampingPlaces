@@ -1,8 +1,8 @@
 # CampingPlaces
 
-### Express | Mongo | Mongoose | ejs | BoilerPlate
+### Express | Mongo | Mongoose | ejs | BoilerPlate | Passport(Authantication & Authorization)
 
-Now Live!! --> [www.campingplaces.onrender.com](https://campingplaces.onrender.com/)
+🔴 Now Live!! --> [www.campingplaces.onrender.com](https://campingplaces.onrender.com/)
 
 
 ![alt text](/screenshots/landing.jpeg)

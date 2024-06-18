@@ -7,11 +7,13 @@ const map = new mapboxgl.Map({
     container: 'cluster-map',
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     style: 'mapbox://styles/mapbox/light-v11',
-    center: [-103.5917, 40.6699],
-    zoom: 3
+    center: [29.052495, 41.0766019],
+    zoom: 4
 });
 
 map.addControl(new mapboxgl.NavigationControl());
+
+
 
 map.on('load', () => {
     // Add a new source from our GeoJSON data and
@@ -99,6 +101,7 @@ map.on('load', () => {
                     center: features[0].geometry.coordinates,
                     zoom: zoom
                 });
+
             }
         );
     });
@@ -128,6 +131,13 @@ map.on('load', () => {
         map.getCanvas().style.cursor = 'pointer';
     });
     map.on('mouseleave', 'clusters', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter', 'unclustered-point', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'unclustered-point', () => {
         map.getCanvas().style.cursor = '';
     });
 });
